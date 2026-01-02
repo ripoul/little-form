@@ -1,0 +1,66 @@
+[project]
+name = "little_form"
+version = "1.0.0"
+authors = [
+  { name="Jules LE BRIS", email="jls.lebris@gmail.com" },
+]
+description = "Because a little app next to your website can be enough to handle form"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "Apache-2.0"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "flask-appbuilder>=5.0",
+    "python-dotenv>=1.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/ripoul/google-wallet-webhook-auth"
+Issues = "https://github.com/ripoul/google-wallet-webhook-auth/issues"
+
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.19.0",
+    "pre-commit>=4.5.0",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.14.9",
+    "types-Flask>=1.1",
+]
+
+
+
+[tool.mypy]
+# Enforce strict checks
+strict = true
+
+# Paths to ignore
+exclude = "^(tests/|conftest\\.py$)"
+files = "little_form"
+
+follow_imports = "silent"
+ignore_missing_imports = true
+
+# Treat untyped functions as errors
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+# Other settings
+check_untyped_defs = true
+show_column_numbers = true
+show_error_codes = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unreachable = true
+pretty = true
+
+[tool.mypy-checker]
+# Optional: Define specific type-checker behavior
+warn_missing_annotations = true
