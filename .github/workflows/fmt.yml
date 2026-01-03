@@ -16,7 +16,7 @@ jobs:
         run: uv sync --locked --all-extras
       - uses: astral-sh/ruff-action@v3
         with:
-            src: "./little_form ./tests"
+            src: "./little_form"
       - name: Run mypy
         id: run_mypy
         run: |

@@ -11,5 +11,7 @@ def create_app() -> Flask:
         appbuilder.init_app(app, db.session)
         db.create_all()
         # Registering the views and APIs
+        from . import views  # noqa: F401
+
         ...
     return app

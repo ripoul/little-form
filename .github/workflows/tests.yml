@@ -23,5 +23,4 @@ jobs:
         run: uv sync --locked --all-extras
       - name: Run tests
         run: |
-          uv run pytest
-    
+          cd little_form && uv run pytest

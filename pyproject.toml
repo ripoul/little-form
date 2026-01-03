@@ -40,7 +40,7 @@ dev = [
 strict = true
 
 # Paths to ignore
-exclude = "^(tests/|conftest\\.py$)"
+exclude = "^(little_form/tests/)"
 files = "little_form"
 
 follow_imports = "silent"
