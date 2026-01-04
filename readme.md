@@ -7,6 +7,12 @@ A little server to handle forms submission.
 - Configure your forms
 - Get notified when a form is submitted
 
+## Run it
+```sh
+docker build . -t little_form
+docker run -p 8000:8000 little_form
+```
+
 ## Development
 
 - Install deps: `uv sync --all-extras`
