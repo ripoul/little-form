@@ -21,8 +21,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install the project
         run: uv sync --locked --all-extras
-      - run: cd little_form
       - name: Run db migrations
         run: uv run flask db upgrade
+        env:
+          FLASK_APP: app
+        working-directory: little_form
       - name: Run tests
         run: uv run pytest
+        working-directory: little_form
