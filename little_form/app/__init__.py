@@ -1,6 +1,6 @@
 from flask import Flask
 
-from .extensions import appbuilder, db
+from .extensions import appbuilder, db, migrate
 
 
 def create_app() -> Flask:
@@ -9,9 +9,8 @@ def create_app() -> Flask:
     with app.app_context():
         db.init_app(app)
         appbuilder.init_app(app, db.session)
-        db.create_all()
-        # Registering the views and APIs
-        from . import views  # noqa: F401
+        from . import models, views  # noqa
 
+        migrate.init_app(app, db)
         ...
     return app

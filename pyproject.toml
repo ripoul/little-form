@@ -16,6 +16,7 @@ license-files = ["LICEN[CS]E*"]
 dependencies = [
     "flask-appbuilder>=5.0",
     "python-dotenv>=1.2",
+    "Flask-Migrate>=4.1",
 ]
 
 [project.urls]
@@ -43,7 +44,7 @@ prod = [
 strict = true
 
 # Paths to ignore
-exclude = "^(little_form/tests/)"
+exclude = "^(little_form/tests/|little_form/migrations/)"
 files = "little_form"
 
 follow_imports = "silent"

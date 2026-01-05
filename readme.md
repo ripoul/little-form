@@ -20,6 +20,7 @@ docker run -p 8000:8000 little_form
 ```sh
 export FLASK_APP=app
 cd little_form
+uv run flask db upgrade
 uv run flask run
 ```
 - Run tests: `uv run pytest`
