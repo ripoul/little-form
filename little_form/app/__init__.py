@@ -1,6 +1,7 @@
 from flask import Flask
 
 from .extensions import appbuilder, db, migrate
+from flask_babel import lazy_gettext as _
 
 
 def create_app() -> Flask:
@@ -14,9 +15,10 @@ def create_app() -> Flask:
         migrate.init_app(app, db)
         appbuilder.add_view(
             views.FormConfigView,
-            "Mes Formulaires",
+            "My Forms",
             icon="fa-wpforms",
-            category="Formulaires",
+            category="Forms",
+            category_label=_("Forms"),
+            label=_("My Forms"),
         )
-        ...
     return app

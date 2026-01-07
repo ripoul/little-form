@@ -7,5 +7,6 @@ COPY little_form /app/little_form
 RUN uv sync --extra prod
 EXPOSE 8000
 WORKDIR /app/little_form
+RUN uv run flask fab babel-compile
 CMD ["uv", "run", "gunicorn", "-b", "0.0.0.0:8000", "app:create_app()"]
 

@@ -6,13 +6,14 @@ from flask_appbuilder.forms import DynamicForm
 from wtforms import TextAreaField
 from .models import FormConfig
 import logging
+from flask_babel import lazy_gettext as _
 
 logger = logging.getLogger(__name__)
 
 
 class FormConfigCustomForm(DynamicForm):  # type: ignore[misc]
     fields = TextAreaField(
-        "Fields", description="Entrez vos tags séparés par des retours à la ligne"
+        "Fields", description=_("Enter your tags separated by line breaks")
     )
 
 
