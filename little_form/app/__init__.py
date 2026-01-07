@@ -12,5 +12,11 @@ def create_app() -> Flask:
         from . import models, views  # noqa
 
         migrate.init_app(app, db)
+        appbuilder.add_view(
+            views.FormConfigView,
+            "Mes Formulaires",
+            icon="fa-wpforms",
+            category="Formulaires",
+        )
         ...
     return app
