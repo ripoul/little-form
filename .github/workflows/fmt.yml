@@ -17,8 +17,6 @@ jobs:
       - uses: astral-sh/ruff-action@v3
         with:
             src: "./little_form"
-      - name: Run mypy
-        id: run_mypy
-        run: |
-          uv run mypy --config-file pyproject.toml
+      - name: run ty
+        run: uv run ty check
     

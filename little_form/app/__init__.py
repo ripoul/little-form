@@ -9,7 +9,7 @@ def create_app() -> Flask:
     app.config.from_object("config")
     with app.app_context():
         db.init_app(app)
-        appbuilder.init_app(app, db.session)
+        appbuilder.init_app(app, db.session)  # ty: ignore[invalid-argument-type]
         from . import models, views  # noqa
 
         migrate.init_app(app, db)
@@ -18,7 +18,7 @@ def create_app() -> Flask:
             "My Forms",
             icon="fa-wpforms",
             category="Forms",
-            category_label=_("Forms"),
-            label=_("My Forms"),
+            category_label=_("Forms"),  # ty: ignore[invalid-argument-type]
+            label=_("My Forms"),  # ty: ignore[invalid-argument-type]
         )
     return app
