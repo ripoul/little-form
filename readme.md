@@ -26,6 +26,11 @@ uv run flask run
 - Run tests: `uv run pytest`
 - Lint and format: `pre-commit run --all-files`
 - Before commit: `pre-commit install`
+- Create migration: `uv run flask db migrate -m "0002_form_reponse"`
+- Create user: `uv run flask fab create-admin`
+- Extract translation: `uv run flask fab babel-extract`
+- Compile translation: `uv run flask fab babel-compile`
+
 
 ## License
 

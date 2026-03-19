@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-07 15:49+0100\n"
+"POT-Creation-Date: 2026-03-19 17:35+0100\n"
 "PO-Revision-Date: 2026-01-07 15:48+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,18 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app/__init__.py:18
+#: app/__init__.py:24
+msgid "Forms"
+msgstr "Forms"
+
+#: app/__init__.py:25
 msgid "My Forms"
 msgstr "My Forms"
 
-#: app/__init__.py:20
-msgid "Forms"
-msgstr "Forms"
+#: app/public_form.py:47
+msgid "Your response has been submitted successfully."
+msgstr "Your response has been submitted successfully."
 
 #: app/views.py:16
 msgid "Enter your tags separated by line breaks"
 msgstr "Enter your tags separated by line breaks"
 
+#: app/views.py:42
+msgid "Submission URL"
+msgstr "Submission URL"
+
 #: app/templates/404.html:4
 msgid "Page not found"
 msgstr "Page not found"
+

@@ -1,6 +1,7 @@
 from flask import Flask
 
 from .extensions import appbuilder, db, migrate
+from .public_form import public_form_bp
 from flask_babel import lazy_gettext as _
 
 
@@ -13,6 +14,8 @@ def create_app() -> Flask:
         from . import models, views  # noqa
 
         migrate.init_app(app, db)
+        app.register_blueprint(public_form_bp)
+        appbuilder.add_view_no_menu(views.FormResponsesView)
         appbuilder.add_view(
             views.FormConfigView,
             "My Forms",
