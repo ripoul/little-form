@@ -102,4 +102,7 @@ IMG_UPLOAD_URL = "/static/uploads/"
 # APP_THEME = "united.css"
 # APP_THEME = "yeti.css"
 
-FAB_CREATE_DB = True
+# When False, FAB tables are managed by Flask-Migrate migrations.
+# This avoids conflicts when running `flask db upgrade` (FAB would otherwise
+# create all tables via create_all, including app tables, before migrations run).
+FAB_CREATE_DB = False

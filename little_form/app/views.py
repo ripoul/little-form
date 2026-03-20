@@ -4,7 +4,7 @@ from flask_appbuilder import ModelView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.forms import DynamicForm
 from wtforms import TextAreaField
-from .models import FormConfig
+from .models import FormConfig, FormResponses
 import logging
 from flask_babel import lazy_gettext as _
 
@@ -17,6 +17,20 @@ class FormConfigCustomForm(DynamicForm):  # type: ignore[misc]
     )
 
 
+class FormResponsesView(ModelView):  # type: ignore[misc]
+    datamodel = SQLAInterface(FormResponses)
+    base_permissions = ["can_list", "can_show"]
+    list_columns = ["id", "form_config", "submitted_at", "ip_address", "responses"]
+    show_columns = [
+        "id",
+        "form_config",
+        "responses",
+        "submitted_at",
+        "ip_address",
+        "user_agent",
+    ]
+
+
 class FormConfigView(ModelView):  # type: ignore[misc]
     datamodel = SQLAInterface(FormConfig)
     add_form = FormConfigCustomForm
@@ -24,7 +38,9 @@ class FormConfigView(ModelView):  # type: ignore[misc]
     list_columns = ["id", "fields", "created_by"]
     add_columns = ["fields"]
     edit_columns = ["fields"]
-    show_columns = ["id", "fields", "created_by"]
+    show_columns = ["id", "fields", "public_form_url", "created_by"]
+    label_columns = {"public_form_url": _("Submission URL")}
+    related_views = [FormResponsesView]
 
     def prefill_form(self, form: FormConfigCustomForm, pk: Any) -> None:
         form.fields.data = "\n".join(form.fields.data) if form.fields.data else ""
